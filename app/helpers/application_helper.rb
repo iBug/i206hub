@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def site_name
-    I206hub::Application.site.name
+    config.site_name
   end
 
   def current_action?(cls, action = nil)
@@ -15,5 +15,10 @@ module ApplicationHelper
     else
       true
     end
+  end
+
+  private
+  def config
+    Rails.application.config
   end
 end
