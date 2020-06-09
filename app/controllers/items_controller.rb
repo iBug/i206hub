@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  layout 'card', only: %i[index show]
 
   # GET /items
   # GET /items.json
@@ -69,6 +70,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :image)
+      params.require(:item).permit(%i[name slug category_id])
     end
 end

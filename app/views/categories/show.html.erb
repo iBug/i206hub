@@ -1,3 +1,5 @@
+<% @card_body_class = 'p-0' %>
+
 <% content_for :before do %>
   <% unless notice.nil? %>
     <p id="notice" class="alert alert-primary"><%= notice %></p>
@@ -7,6 +9,21 @@
 <% content_for :card_header do %>
   <h3 class="mb-0">Category: <%= @category.name %></h3>
 <% end %>
+
+<table class="table table-hover mb-0">
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <th scope="row">
+          <%= item.name %>
+        </th>
+        <td>
+          <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% content_for :card_footer do %>
   <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-primary' %>

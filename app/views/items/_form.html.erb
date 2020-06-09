@@ -1,27 +1,42 @@
 <%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+  <% content_for :before do %>
+    <% if item.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <p><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</p>
 
-      <ul>
-        <% item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% content_for :card_body do %>
+    <div class="form-group">
+      <%= form.label :category %>
+      <%= form.select :category_id, options_for_select(Category.all.map do |category| %>
+        <% [category.name, category.id] %>
+        <% end), {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :slug %>
+      <%= form.text_field :slug, class: 'form-control' %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <%# Trick for prepending (instead of appending) with content_for %>
+  <% content_for :card_footer, flush: true do %>
+    <%= form.submit class: 'btn btn-primary' %>
+    <%= content_for :card_footer %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= render template: 'layouts/_card' %>
 <% end %>
