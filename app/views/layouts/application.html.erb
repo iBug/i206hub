@@ -15,8 +15,8 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <div class="container initial-content">
-      <%= yield %>
+    <div class="container initial-content py-3">
+      <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
     <footer class="footer shadow-sm">
       <div class="container">

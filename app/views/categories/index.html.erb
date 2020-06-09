@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% @card_body_class = 'p-0' %>
 
-<div class="card bg-light shadow-sm">
-  <div class="card-header py-3">
-    <h3 class="mb-0">Categories</h3>
-  </div>
+<% content_for :before do %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-  <div class="card-body p-0">
-    <table class="table table-hover mb-0">
-      <tbody>
-        <% @categories.each do |category| %>
-          <tr>
-            <td>
-              <%= category.name %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<% content_for :card_header do %>
+  <h3 class="mb-0">Categories</h3>
+<% end %>
 
-<%= link_to 'New Category', new_category_path %>
+<table class="table table-hover mb-0">
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <th scope="row">
+          <%= category.name %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :card_footer do %>
+  <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>
+<% end %>
