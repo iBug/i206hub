@@ -1,12 +1,9 @@
 module ApplicationHelper
   include ConfigHelper
+
   def title(text)
     content_for :title, text
     text
-  end
-
-  def site_name
-    config.site_name
   end
 
   def current_action?(cls, action = nil)
@@ -16,10 +13,5 @@ module ApplicationHelper
     else
       true
     end
-  end
-
-  private
-  def self.config
-    Rails.application.config
   end
 end

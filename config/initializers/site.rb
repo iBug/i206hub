@@ -1,7 +1,5 @@
-Rails.application.configure do
-  YAML.load_file('config/config.yml').each do |k, v|
-    config.define_singleton_method k.to_sym do
-      v
-    end
+module I206hub
+  class Application
+    config.site = YAML.load_file 'config/site.yml'
   end
 end

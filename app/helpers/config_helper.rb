@@ -1,11 +1,11 @@
 module ConfigHelper
   def site_name
-    config.site_name
+    config['name']
   end
 
   private
 
-  def self.config
-    Rails.application.config
+  def config
+    Rails.application.config.site
   end
 end
