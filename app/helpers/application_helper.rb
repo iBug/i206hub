@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ConfigHelper
   def title(text)
     content_for :title, text
     text
@@ -18,7 +19,7 @@ module ApplicationHelper
   end
 
   private
-  def config
+  def self.config
     Rails.application.config
   end
 end

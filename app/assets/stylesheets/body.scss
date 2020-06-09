@@ -2,8 +2,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background-color: #eee;
 }
 
 .initial-content {
 	flex: 1 0 auto;
+}
+
+footer {
+	padding-top: 1em;
+	border-top: 1px solid #ccc;
 }

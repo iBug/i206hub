@@ -9,16 +9,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css", integrity: "sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css", integrity: "sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=", crossorigin: :anonymous %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
-    <%= render "navbar" %>
+    <%= render "layouts/navbar" %>
     <div class="container initial-content">
       <%= yield %>
     </div>
-    <footer class="footer">
+    <footer class="footer shadow-sm">
       <div class="container">
         <p class="text-muted">
           <a href="https://github.com/iBug/i206hub">Anime Rating Community</a> by iBug, a.k.a "206hub"
@@ -26,8 +26,8 @@
       </div>
     </footer>
 
-    <# Optional scripts #>
-    <# jQuery, Popper.js, Bootstrap, Font Awesome #>
+    <%# Optional scripts %>
+    <%# jQuery, Popper.js, Bootstrap, Font Awesome %>
     <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js", integrity: "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n", crossorigin: "anonymous" %>
     <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", integrity: "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo", crossorigin: "anonymous" %>
     <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js", integrity: "sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=", crossorigin: "anonymous" %>
