@@ -12,7 +12,9 @@
           <%= link_to category.name, category %>
         </th>
         <td>
-          <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-primary' %>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-primary' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
@@ -20,5 +22,7 @@
 </table>
 
 <% content_for :card_footer do %>
-  <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>
+  <% if user_signed_in? %>
+    <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>
+  <% end %>
 <% end %>

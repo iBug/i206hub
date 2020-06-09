@@ -32,6 +32,10 @@
           分类
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to categories_url, class: 'dropdown-item' + (current_page?(categories_url) ? ' active' : '') do %>
+            <i class="fas fa-fw fa-folder"></i>
+            All categories
+          <% end %>
           <% Category.all.each do |category| %>
             <%= link_to category.name, category, class: 'dropdown-item' + (current_page?(category_url(category)) ? ' active' : '') %>
           <% end %>
