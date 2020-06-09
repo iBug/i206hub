@@ -1,24 +1,5 @@
 <% content_for :content do %>
-  <%= yield :before if content_for? :before %>
-  <div class="card <%= @card_class || 'bg-light shadow-sm' %>">
-    <div class="card-header <%= @card_header_class || 'py-3' %>">
-      <% if content_for?(:card_header) %>
-        <%= yield(:card_header) %>
-      <% else %>
-        <h3 class="mb-0">Archive</h3>
-      <% end%>
-    </div>
-
-    <div class="card-body <%= @card_body_class %>">
-      <%= yield %>
-    </div>
-
-    <% if content_for?(:card_footer) %>
-      <div class="card-footer <%= @card_footer_class %>">
-        <%= yield :card_footer %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'layouts/card' %>
 <% end %>
 
 <%= render template: 'layouts/application' %>

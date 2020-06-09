@@ -1,5 +1,7 @@
 <% content_for :before do %>
-  <p id="notice"><%= notice %></p>
+  <% unless notice.nil? %>
+    <p id="notice" class="alert alert-primary"><%= notice %></p>
+  <% end %>
 <% end %>
 
 <% content_for :card_header do %>

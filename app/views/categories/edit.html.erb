@@ -1,6 +1,10 @@
-<h1>Editing Category</h1>
+<% content_for :card_header do %>
+  <h3 class="mb-0">Edit category <%= @category.name %></h3>
+<% end %>
 
 <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<% content_for :card_footer do %>
+  <%= link_to 'Show', @category, class: 'btn btn-secondary' %>
+  <%= link_to 'Back', categories_path, class: 'btn btn-secondary' %>
+<% end %>

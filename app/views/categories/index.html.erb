@@ -15,6 +15,9 @@
         <th scope="row">
           <%= category.name %>
         </th>
+        <td>
+          <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-primary' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
