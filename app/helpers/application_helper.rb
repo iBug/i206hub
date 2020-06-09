@@ -4,6 +4,10 @@ module ApplicationHelper
     text
   end
 
+  def site_name
+    I206hub::Application.site.name
+  end
+
   def current_action?(cls, action = nil)
     return false unless controller.is_a? cls
     if action

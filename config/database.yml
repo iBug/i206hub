@@ -20,6 +20,7 @@ default: &default
 development:
   <<: *default
   database: i206hub_development
+  username: <%= ENV.fetch("USERNAME") { %x{id -un} } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
