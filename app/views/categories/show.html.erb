@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% content_for :before do %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<% content_for :card_header do %>
+  <h3 class="mb-0">Category: <%= @category.name %></h3>
+<% end %>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @category.slug %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% content_for :card_footer do %>
+  <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-primary' %>
+  <%= link_to 'Back', categories_path, class: 'btn btn-secondary' %>
+<% end %>
