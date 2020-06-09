@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="<%= root_url %>">
     <i class="fas fa-bug fa-fw fa-lg"></i>
     <%= site_name %>
   </a>
@@ -8,8 +8,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item {% if page.url == '/' %} active {% endif %}">
-        <a class="nav-link" href="{{ "/" | relative_url }}">
+      <li class="nav-item<%= ' active' if current_page? root_url %>">
+        <a class="nav-link" href="<%= root_url %>">
           <i class="fas fa-fw fa-home"></i>
           主页
         </a>
@@ -32,12 +32,9 @@
           分类
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          {% for collection in site.collections %}
-            {% if collection.label != "posts" %}
-              <a class="dropdown-item {% if url_dir[1] == collection.label %} active {% endif %}" 
-                 href="{{ collection.label | prepend: "/" | relative_url }}">{{ collection.name }}</a>
-            {% endif %}
-          {% endfor %}
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, category, class: 'dropdown-item' + (current_page?(category_url(category)) ? ' active' : '') %>
+          <% end %>
         </div>
       </li>
       <li class="nav-item">
