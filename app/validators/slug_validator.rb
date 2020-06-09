@@ -1,4 +1,4 @@
-module SlugValidator < ActiveModel::Validator
+class SlugValidator < ActiveModel::Validator
   RESERVED_WORDS = %w[
     admin user login logout
     category categories item items review reviews comment comments

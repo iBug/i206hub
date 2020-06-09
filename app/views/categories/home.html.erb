@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="p-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Categories</h1>
+</div>
+
+<% @categories.each_slice 3 do |slice| %>
+  <div class="card-deck mb-3 text-center">
+    <% slice.each do |category| %>
+      <div class="card mb-4 shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">
+            <%= category.name %>
+          </h4>
+        </div>
+
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>
+              Placeholder text
+            </li>
+          </ul>
+
+          <%= link_to 'View', category, class: 'btn btn-lg btn-block btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+
+    <%# Fill remaining seats %>
+    <% ((slice.length + 1)..3).each do %>
+      <div class="card mb-4 invisible"></div>
+    <% end %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
