@@ -14,14 +14,14 @@
           主页
         </a>
       </li>
-      <li class="nav-item {% if url_dir[1] == 'tag' %} active {% endif %}">
-        <a class="nav-link" href="{{ "/tag/" | relative_url }}">
+      <li class="nav-item">
+        <a class="nav-link" href="/tag/">
           <i class="fas fa-fw fa-tags"></i>
           标签
         </a>
       </li>
-      <li class="nav-item {% if url_dir[1] == 'search' %} active {% endif %}">
-        <a class="nav-link" href="{{ "/search/" | relative_url }}">
+      <li class="nav-item">
+        <a class="nav-link" href="/search">
           <i class="fas fa-fw fa-search"></i>
           搜索
         </a>
@@ -38,19 +38,34 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ "/atom.xml" | relative_url }}">
+        <a class="nav-link" href="/atom.xml">
           <i class="fas fa-fw fa-rss"></i>
           RSS
         </a>
       </li>
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
-      <li class="nav-item {% if url_dir[1] == 'about' %} active {% endif %}">
-        <a class="nav-link" href="{{ "/about/" | relative_url }}">
+      <li class="nav-item">
+        <a class="nav-link" href="/about">
           <i class="fas fa-fw fa-info-circle"></i>
           关于
         </a>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            Logout
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-fw fa-sign-in-alt"></i>
+            Login
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <div class="p-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Categories</h1>
@@ -15,7 +17,10 @@
         </div>
 
         <div class="card-body">
-          <ul class="list-unstyled">
+          <h3 class="card-title">
+            <%= pluralize category.items.count, 'item' %>
+          </h3>
+          <ul class="list-unstyled mt-3 mb-4">
             <li>
               Placeholder text
             </li>
