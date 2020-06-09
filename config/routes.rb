@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'categories#home'
-  resources :categories, param: :slug
+  resources :categories
   resources :items
 end

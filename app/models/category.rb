@@ -3,4 +3,8 @@ class Category < ApplicationRecord
 
   include ActiveModel::Validations
   validates_with SlugValidator
+
+  def to_param
+    slug
+  end
 end

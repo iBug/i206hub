@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string :name
       t.string :image
-      t.string :slug
+      t.string :slug, unique: true
 
       t.timestamps
     end
