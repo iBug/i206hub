@@ -52,11 +52,21 @@
         </a>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, class: 'nav-link' do %>
-            <i class="fas fa-fw fa-sign-out-alt"></i>
-            Logout
-          <% end %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-user"></i>
+            <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+              <i class="fas fa-fw fa-key"></i>
+              Change password
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+              <i class="fas fa-fw fa-sign-out-alt"></i>
+              Logout
+            <% end %>
+          </div>
         </li>
       <% else %>
         <li class="nav-item">

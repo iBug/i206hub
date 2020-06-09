@@ -2,12 +2,6 @@
 <% @card_header_class = 'text-white bg-info text-center py-3' %>
 <% @card_footer_class = 'text-white bg-info text-center' %>
 
-<% content_for :before do %>
-  <% unless notice.nil? %>
-    <p id="notice" class="alert alert-primary"><%= notice %></p>
-  <% end %>
-<% end %>
-
 <% content_for :card_header do %>
   <h1 class="mb-0"><%= @item.name %></h1>
 <% end %>

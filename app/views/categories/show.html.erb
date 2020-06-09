@@ -1,11 +1,5 @@
 <% @card_body_class = 'p-0' %>
 
-<% content_for :before do %>
-  <% unless notice.nil? %>
-    <p id="notice" class="alert alert-primary"><%= notice %></p>
-  <% end %>
-<% end %>
-
 <% content_for :card_header do %>
   <h3 class="mb-0">Category: <%= @category.name %></h3>
 <% end %>
