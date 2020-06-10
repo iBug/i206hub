@@ -1,11 +1,11 @@
-<div class="p-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="p-3 py-md-5 mx-auto text-center">
   <h1 class="display-4">Categories</h1>
 </div>
 
-<% @categories.each_slice 3 do |slice| %>
-  <div class="card-deck mb-3 text-center">
-    <% slice.each do |category| %>
-      <div class="card mb-4 shadow">
+<div class="row text-center">
+  <% @categories.each do |category| %>
+    <div class="col col-12 col-sm-6 col-md-4 col-lg-3 px-3 mb-4">
+      <div class="card shadow">
         <div class="card-header">
           <h4 class="my-0 font-weight-normal">
             <%= category.name %>
@@ -25,11 +25,6 @@
           <%= link_to 'View', category, class: 'btn btn-lg btn-block btn-primary' %>
         </div>
       </div>
-    <% end %>
-
-    <%# Fill remaining seats %>
-    <% ((slice.length + 1)..3).each do %>
-      <div class="card mb-4 invisible"></div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
