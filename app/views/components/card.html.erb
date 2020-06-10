@@ -1,0 +1,2 @@
+<%= yield :before if content_for? :before %>
+<%= render partial: 'components/card', locals: { card_class: @card_class, card_header_class: @card_header_class, card_header: yield(:card_header), card_body_class: @card_body_class, card_body: (content_for?(:card_body) ? yield(:card_body) : yield), card_footer_class: @card_footer_class, card_footer: yield(:card_footer) } %>

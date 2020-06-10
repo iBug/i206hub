@@ -1,0 +1,19 @@
+<div class="card <%= card_class || 'bg-light shadow-sm' %>">
+  <div class="card-header <%= card_header_class || 'py-3' %>">
+    <% unless card_header.nil? %>
+      <%= card_header %>
+    <% else %>
+      <h3 class="mb-0">&nbsp;</h3>
+    <% end%>
+  </div>
+
+  <div class="card-body <%= card_body_class %>">
+    <%= card_body %>
+  </div>
+
+  <% unless card_footer.nil? %>
+    <div class="card-footer <%= card_footer_class %>">
+      <%= card_footer %>
+    </div>
+  <% end %>
+</div>
