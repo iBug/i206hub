@@ -13,16 +13,16 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%= render "layouts/navbar" %>
-    <div class="container initial-content py-3">
+    <div id="initial-content" class="container initial-content flex-grow-1 py-3">
       <% unless notice.nil? %>
         <p id="notice" class="alert alert-primary"><%= notice %></p>
       <% end %>
 
       <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
-    <footer class="footer shadow-sm">
+    <footer id="footer" class="footer shadow-sm py-3 py-md-4 border-top">
       <div class="container">
         <p class="text-muted">
           <a href="https://github.com/iBug/i206hub">Anime Rating Community</a> by iBug, a.k.a "206hub"
