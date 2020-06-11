@@ -2,6 +2,10 @@
 <% @card_header_class = 'text-white bg-info text-center py-3' %>
 <% @card_footer_class = 'text-white bg-info text-center' %>
 
+<% content_for :title do %>
+  <%= @item.name %>
+<% end %>
+
 <% content_for :card_header do %>
   <h1 class="mb-0"><%= @item.name %></h1>
 <% end %>
@@ -10,5 +14,5 @@
   <% if user_signed_in? %>
     <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to 'Back', items_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Back', category_path(@item.category), class: 'btn btn-secondary' %>
 <% end %>

@@ -1,7 +1,7 @@
 class SlugValidator < ActiveModel::Validator
   RESERVED_WORDS = %w[
     admin user users login logout
-    new edit show delete
+    create new edit update index show
     api search feed.xml
     category categories item items review reviews comment comments
   ]
@@ -9,7 +9,7 @@ class SlugValidator < ActiveModel::Validator
 
   def validate(record)
     slug = record.slug
-    unless slug =~ %r{\A(?!\d+\z)(?![._-]+\z)[\w.]+*}
+    unless slug =~ %r{\A(?!\d+\z)(?![._-]+\z)[\w.]+}
       record.errors.add(:slug, "Invalid slug")
     end
     if RESERVED_WORDS.include? slug

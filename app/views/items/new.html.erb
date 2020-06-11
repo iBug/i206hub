@@ -6,4 +6,4 @@
   <%= link_to 'Back', items_path, class: 'btn btn-secondary' %>
 <% end %>
 
-<%= render template: 'items/_form', locals: {item: @item} %>
+<%= render 'form', item: @item %>

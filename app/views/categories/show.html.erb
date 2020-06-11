@@ -4,27 +4,16 @@
   <h3 class="mb-0">Category: <%= @category.name %></h3>
 <% end %>
 
-<table class="table table-hover mb-0">
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <th scope="row">
-          <%= link_to item.name, item %>
-        </th>
-        <td>
-          <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-primary' %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="list-group list-group-flush">
+  <% @items.each do |item| %>
+    <%= link_to item.name, item, class: 'list-group-item list-group-item-action' %>
+  <% end %>
+</div>
 
 <% content_for :card_footer do %>
   <% if user_signed_in? %>
     <%= link_to 'New Item', new_item_path, class: 'btn btn-primary' %>
     <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-secondary' %>
   <% end %>
-  <%= link_to 'Back', categories_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Back', root_path, class: 'btn btn-secondary' %>
 <% end %>
