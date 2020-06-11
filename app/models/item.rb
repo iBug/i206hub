@@ -27,6 +27,13 @@ class Item < ApplicationRecord
   end
 
   def render_description
-    self.html = ActionController::Base.helpers.sanitize(CommonMarker.render_html(self.description, %i[UNSAFE], %i[table strikethrough autolink tagfilter]), scrubber: PostScrubber.new)
+    # Markdown pipeline :)
+    s = CommonMarker.render_html(self.description, %i[UNSAFE], %i[table strikethrough autolink tagfilter])
+    s = ActionController::Base.helpers.sanitize(s, scrubber: PostScrubber.new)
+    doc = Nokogiri::HTML::DocumentFragment.parse s
+    doc.css('a[href]').each do |a|
+      a['rel'] = 'nofollow noreferrer'
+    end
+    self.html = doc.to_html
   end
 end
