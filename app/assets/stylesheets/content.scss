@@ -1,0 +1,37 @@
+.i {
+	@mixin no-end-padding {
+		> :last-child {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	&-item-description {
+		&, div, blockquote {
+			@include no-end-padding;
+		}
+
+		blockquote {
+			border-left: 4px solid gray;
+			padding: 0.5em 0.8em;
+			color: var(--gray);
+		}
+
+		dl, ul, ol {
+			padding-inline-start: 20px;
+		}
+
+		pre {
+			padding: 0.5em;
+			background-color: #eff0f1;
+
+			code {
+				padding: 0;
+			}
+		}
+
+		code {
+			padding: 1px 4px;
+			background-color: #eff0f1;
+		}
+	}
+}
