@@ -20,7 +20,13 @@ class Item < ApplicationRecord
   include ActiveModel::Validations
   validates_with SlugValidator
 
+  before_save :render_description
+
   def to_param
     slug
+  end
+
+  def render_description
+    self.html = ActionController::Base.helpers.sanitize(CommonMarker.render_html(self.description, %i[UNSAFE], %i[table strikethrough autolink tagfilter]), scrubber: PostScrubber.new)
   end
 end

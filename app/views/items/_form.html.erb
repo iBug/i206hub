@@ -28,7 +28,12 @@
 
     <div class="form-group">
       <%= form.label :slug %>
-      <%= form.text_field :slug, class: 'form-control' %>
+      <%= form.text_field :slug, class: 'form-control text-monospace' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, rows: 5, class: 'form-control text-monospace' %>
     </div>
   <% end %>
 

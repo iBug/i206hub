@@ -9,5 +9,5 @@ User.create! username: 'Administrator', email: 'admin@example.com', password: '1
 ].each { |h| Category.create h }
 
 [
-  { name: 'TaoKY', slug: 'taoky', category_id: 1 },
+  { name: 'TaoKY', slug: 'taoky', description: 'TaoKY **Strong**!', category_id: 1 },
 ].each { |h| Item.create h }
