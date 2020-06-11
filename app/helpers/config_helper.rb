@@ -7,6 +7,14 @@ module ConfigHelper
     config['lang'] || 'en'
   end
 
+  def git_rev
+    Rails.application.config.git_revision
+  end
+
+  def git_rev_short
+    Rails.application.config.git_revision_short
+  end
+
   private
 
   def config

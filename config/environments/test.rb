@@ -36,4 +36,8 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+  # Initialize Git revision only once in test and production environments
+  config.git_revision = %x{git rev-parse HEAD}
+  config.git_revision_short = config.git_revision[0..7]
 end
