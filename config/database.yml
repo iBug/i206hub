@@ -50,6 +50,6 @@ development:
 #
 production:
   <<: *default
-  database: i206hub_production
-  username: i206hub
+  database: <%= ENV.fetch 'I206HUB_DATABASE', 'i206hub' %>
+  username: <%= ENV.fetch 'I206HUB_DATABASE_USER', 'i206hub' %>
   password: <%= ENV['I206HUB_DATABASE_PASSWORD'] %>
