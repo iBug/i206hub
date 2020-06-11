@@ -1,0 +1,20 @@
+<% @card_class = 'bg-light shadow-sm border-danger mb-3' %>
+<% @card_header_class = 'text-white bg-danger text-center py-3' %>
+<% @card_body_class = 'text-center' %>
+<% @card_footer_class = 'text-white bg-danger text-center' %>
+
+<% content_for :title do %>
+  <%= @status_code %>
+<% end %>
+
+<% content_for :card_header do %>
+  <h1 class="mb-0">Error <%= @status_code %></h1>
+<% end %>
+
+<% content_for :card_body do %>
+  <%= @text %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to 'Back', 'javascript:window.history.back()', class: 'btn btn-success btn-outline-light' %>
+<% end %>
