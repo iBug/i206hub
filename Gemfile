@@ -3,13 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.5', '< 3.x'
 
-gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sqlite3'
 gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.1'
 gem 'jbuilder', '~> 2.7'
-gem 'devise'
+gem 'devise', '~> 4.7.2'
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'uglifier', '>= 4.2.0'
 gem 'sassc-rails'
 gem 'commonmarker'
 
