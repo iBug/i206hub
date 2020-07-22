@@ -1,3 +1,7 @@
 Rails.application.configure do
-  config.site = YAML.load_file 'config/site.yml'
+  if File.file? 'config/site.yml'
+    config.site = YAML.load_file 'config/site.yml'
+  else
+    config.site = YAML.load_file 'config/site.example.yml'
+  end
 end
