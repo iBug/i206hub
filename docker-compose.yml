@@ -1,0 +1,31 @@
+version: "2.3"
+
+services:
+  app:
+    image: ibugone/206hub
+    ports: 
+      - '3000:3000'
+    environment:
+      DATABASE_URL: mysql2://i206hub:i206hub@db/i206hub
+      RAILS_SERVE_STATIC_FILES: "true"
+      SECRET_KEY_BASE: taoky_strong
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: i206hub
+      MYSQL_USER: i206hub
+      MYSQL_PASSWORD: i206hub
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 12
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data: {}
